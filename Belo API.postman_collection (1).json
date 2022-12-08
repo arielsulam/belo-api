@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "fcb7e81b-c2eb-4d76-85a2-39a1f86f82d9",
+		"name": "Belo API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23936103"
+	},
+	"item": [
+		{
+			"name": "Optimal Price",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Test\", function () {\r",
+							"    // if any assertion throws an error, this test will fail\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.response.to.be.ok;\r",
+							"    pm.response.to.be.json;\r",
+							"    pm.response.to.have.body!==null;\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.quantity).eql('1002');\r",
+							"    pm.response.to.have.jsonBody('quantity');\r",
+							"    pm.response.to.have.jsonBody('id');\r",
+							"    pm.response.to.have.jsonBody('price');\r",
+							"    pm.response.to.have.jsonBody('timeStamp');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/optimal-price?instId=BTC-USDT&side=BUY&volume=1002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"optimal-price"
+					],
+					"query": [
+						{
+							"key": "instId",
+							"value": "BTC-USDT"
+						},
+						{
+							"key": "side",
+							"value": "BUY"
+						},
+						{
+							"key": "volume",
+							"value": "1002"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Place Order",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Test\", function () {\r",
+							"    // if any assertion throws an error, this test will fail\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.response.to.be.ok;\r",
+							"    pm.response.to.be.json;\r",
+							"    pm.response.to.have.body!==null;\r",
+							"    const response = pm.response.json();\r",
+							"    pm.response.to.have.jsonBody('msg');\r",
+							"    pm.response.to.have.jsonBody('orderId');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderId\":99\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/place-order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"place-order"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
